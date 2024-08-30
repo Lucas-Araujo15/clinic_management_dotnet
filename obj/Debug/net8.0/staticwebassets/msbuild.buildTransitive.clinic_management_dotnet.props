@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\buildMultiTargeting\clinic_management_dotnet.props" />
+</Project>

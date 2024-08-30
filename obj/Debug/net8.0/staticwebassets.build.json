@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "MrL3ICnoI2owlCKsukxUyM8syRqxARdcvx+2UFxvgWk=",
+  "Source": "clinic_management_dotnet",
+  "BasePath": "_content/clinic_management_dotnet",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
