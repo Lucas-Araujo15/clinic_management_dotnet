@@ -111,3 +111,4 @@ C:\FIAP-2_ANO\clinic_management_dotnet\obj\Debug\net8.0\clinic_management_dotnet
 C:\FIAP-2_ANO\clinic_management_dotnet\obj\Debug\net8.0\clinic_management_dotnet.genruntimeconfig.cache
 C:\FIAP-2_ANO\clinic_management_dotnet\obj\Debug\net8.0\ref\clinic_management_dotnet.dll
 C:\FIAP-2_ANO\clinic_management_dotnet\obj\Debug\net8.0\clinic_management_dotnet.sourcelink.json
+C:\FIAP-2_ANO\clinic_management_dotnet\bin\Debug\net8.0\Swashbuckle.AspNetCore.Annotations.dll

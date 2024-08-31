@@ -11,13 +11,21 @@ namespace clinic_management_dotnet.Models
         public int Id { get; set; }
 
         [ForeignKey("id_patient")]
-        public required PatientModel Patient { get; set; }
+        public PatientModel Patient { get; set; }
 
         [ForeignKey("id_health_plan")]
-        public required HealthPlanModel HealthPlan { get; set; }
+        public HealthPlanModel HealthPlan { get; set; }
 
         [Column("dt_accession")]
-        public required DateTime AccessionDate { get; set; }
+        public DateTime AccessionDate { get; set; }
 
+        public PatientHealthPlanModel(PatientModel patient, HealthPlanModel healthPlan)
+        {
+            Patient = patient;
+            HealthPlan = healthPlan;
+            AccessionDate = DateTime.Now;
+        }
+
+        public PatientHealthPlanModel() { }
     }
 }

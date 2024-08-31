@@ -1,10 +1,13 @@
 ﻿using clinic_management_dotnet.Dtos.Patient;
+using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace clinic_management_dotnet.Models
 {
     [Table("T_CM_PATIENT")]
+    [Index(nameof(Cpf), IsUnique = true)]
+    [Index(nameof(Phone), IsUnique = true)]
     public class PatientModel
     {
         [Key]

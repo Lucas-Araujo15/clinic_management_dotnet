@@ -6,6 +6,7 @@ namespace clinic_management_dotnet.Dtos.Patient
 {
     public class PatientDTO
     {
+        public int Id { get; set; }
         public string Name { get; set; }
         public DateOnly DateOfBirth { get; set; }
         public string Cpf { get; set; }
@@ -14,6 +15,7 @@ namespace clinic_management_dotnet.Dtos.Patient
 
         public PatientDTO(PatientModel model)
         {
+            Id = model.Id;
             Name = model.Name;
             DateOfBirth = model.DateOfBirth;
             Cpf = model.Cpf;

@@ -3,11 +3,13 @@ using clinic_management_dotnet.Dtos.Patient;
 using clinic_management_dotnet.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Swashbuckle.AspNetCore.Annotations;
 
 namespace clinic_management_dotnet.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [SwaggerTag("Controller de Pacientes")]
     public class PatientsController : ControllerBase
     {
         private readonly AppDbContext _context;
@@ -18,15 +20,17 @@ namespace clinic_management_dotnet.Controllers
         }
 
         [HttpGet]
+        [SwaggerOperation(Summary = "Lista todos os pacientes cadastrados")]
         public async Task<ActionResult<IEnumerable<PatientDTO>>> FindAllPatients()
         {
-            return await _context.Patients
+            return Ok(await _context.Patients
                 .Include(p => p.Address)
                 .Select(p => new PatientDTO(p))
-                .ToListAsync();
+                .ToListAsync());
         }
 
         [HttpGet("{id}")]
+        [SwaggerOperation(Summary = "Busca um paciente por ID")]
         public async Task<ActionResult<PatientDTO>> FindPatientById(int id)
         {
             var patient = await _context.Patients
@@ -42,6 +46,7 @@ namespace clinic_management_dotnet.Controllers
         }
 
         [HttpPost]
+        [SwaggerOperation(Summary = "Cadastra um novo paciente\r")]
         public async Task<ActionResult<PatientDTO>> CreatePatient(CreatePatientDTO dto)
         {
             var patient = new PatientModel(dto);
@@ -55,6 +60,7 @@ namespace clinic_management_dotnet.Controllers
         }
 
         [HttpPut("{id}")]
+        [SwaggerOperation(Summary = "Atualizar os dados de um paciente existente")]
         public async Task<IActionResult> UpdatePatient(int id, UpdatePatientDTO dto)
         {
             var patient = await _context.Patients
@@ -81,6 +87,7 @@ namespace clinic_management_dotnet.Controllers
         }
 
         [HttpDelete("{id}")]
+        [SwaggerOperation(Summary = "Exclui um paciente")]
         public async Task<IActionResult> DeletePatient(int id)
         {
             var patient = await _context.Patients.Include(p => p.Address).FirstOrDefaultAsync(p => p.Id == id);
@@ -88,6 +95,11 @@ namespace clinic_management_dotnet.Controllers
             if (patient == null)
             {
                 return NotFound();
+            }
+
+            if (patient.PatientHealthPlans != null)
+            {
+                _context.PatientHealthPlan.RemoveRange(patient.PatientHealthPlans);
             }
 
             _context.Patients.Remove(patient);
