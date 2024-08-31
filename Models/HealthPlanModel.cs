@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace clinic_management_dotnet.Models
 {
     [Table("T_CM_HEALTH_PLAN")]
-    public class HealthPlan
+    public class HealthPlanModel
     {
         [Key]
         [Column("id_health_plan")]
@@ -19,6 +19,6 @@ namespace clinic_management_dotnet.Models
         [Column("ds_coverage")]
         public required string Coverage { get; set; }
 
-        public ICollection<Patient> Patients { get; set; }
+        public required ICollection<PatientHealthPlanModel> PatientHealthPlans { get; set; }
     }
 }

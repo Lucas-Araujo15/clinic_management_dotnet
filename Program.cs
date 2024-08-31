@@ -12,6 +12,17 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseOracle(builder.Configuration.GetConnectionString("DefaultConnection")));
 
+var MyAllowSpecificOrigins = "_AllowSpecificOrigins";
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(name: MyAllowSpecificOrigins,
+                      policy =>
+                      {
+                          policy.AllowAnyOrigin();
+                          policy.AllowAnyMethod();
+                      });
+});
 
 builder.Services.AddSwaggerGen();
 

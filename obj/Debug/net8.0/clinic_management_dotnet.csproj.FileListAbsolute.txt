@@ -110,3 +110,4 @@ C:\FIAP-2_ANO\clinic_management_dotnet\obj\Debug\net8.0\refint\clinic_management
 C:\FIAP-2_ANO\clinic_management_dotnet\obj\Debug\net8.0\clinic_management_dotnet.pdb
 C:\FIAP-2_ANO\clinic_management_dotnet\obj\Debug\net8.0\clinic_management_dotnet.genruntimeconfig.cache
 C:\FIAP-2_ANO\clinic_management_dotnet\obj\Debug\net8.0\ref\clinic_management_dotnet.dll
+C:\FIAP-2_ANO\clinic_management_dotnet\obj\Debug\net8.0\clinic_management_dotnet.sourcelink.json

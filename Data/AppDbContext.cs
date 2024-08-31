@@ -9,9 +9,8 @@ namespace clinic_management_dotnet.Data
         {
         }
 
-        public DbSet<Patient> Patients { get; set; }
-        public DbSet<Address> Address { get; set; }
-        public DbSet<HealthPlan> HealthPlan { get; set; }
-
+        public DbSet<PatientModel> Patients { get; set; }
+        public DbSet<AddressModel> Address { get; set; }
+        public DbSet<HealthPlanModel> HealthPlan { get; set; }
     }
 }
